@@ -2,5 +2,7 @@
 /public/build/
 /public/build.txt
 /public/service-worker.js*
+/public/index.html
+/public/manifest.webmanifest
 
 .DS_Store

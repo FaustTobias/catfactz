@@ -107,6 +107,18 @@ function generateIndexDocument() {
           .toString()
           .replace(/%BASE_DIR%/g, process.env.BASE_DIR || "/")
       );
+
+      fs.writeFileSync(
+        `${__dirname}/public/manifest.webmanifest`,
+        JSON.stringify(
+          JSON.parse(
+            fs
+              .readFileSync(`${__dirname}/src/manifest.webmanifest`)
+              .toString()
+              .replace(/%BASE_DIR%/g, process.env.BASE_DIR || "/")
+          )
+        )
+      );
     },
   };
 }

@@ -5,6 +5,6 @@
   "start_url": "/?source=pwa",
   "background_color": "#4169e1",
   "display": "standalone",
-  "scope": "/",
+  "scope": "%BASE_DIR%",
   "theme_color": "#4169e1"
 }
