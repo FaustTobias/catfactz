@@ -6,5 +6,17 @@
   "background_color": "#4169e1",
   "display": "standalone",
   "scope": "%BASE_DIR%",
-  "theme_color": "#4169e1"
+  "theme_color": "#4169e1",
+  "icons": [
+    {
+      "src": "%BASE_DIR%icons/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "%BASE_DIR%icons/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
 }

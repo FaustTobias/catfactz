@@ -5,6 +5,8 @@ var urlsToCache = [
   "/global.css",
   "/build/bundle.css",
   "/build/bundle.js",
+  "/icons/icon-192.png",
+  "/icons/icon-512.png",
 ];
 
 urlsToCache = urlsToCache.map((url) => `${__BASE_DIR__}${url.slice(1)}`);
