@@ -1,10 +1,10 @@
 var CACHE_NAME = `catfactz-${__buildDate__}`;
 var urlsToCache = [
-  `${__BASE_DIR__}/`,
-  `${__BASE_DIR__}/favicon.png`,
-  `${__BASE_DIR__}/global.css`,
-  `${__BASE_DIR__}/build/bundle.css`,
-  `${__BASE_DIR__}/build/bundle.js`,
+  `${__BASE_DIR__}`,
+  `${__BASE_DIR__}favicon.png`,
+  `${__BASE_DIR__}global.css`,
+  `${__BASE_DIR__}build/bundle.css`,
+  `${__BASE_DIR__}build/bundle.js`,
 ];
 
 function clearUnusedCaches(temporary) {
