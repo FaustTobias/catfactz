@@ -54,6 +54,10 @@
     font-family: sans-serif;
     flex: 1 1 auto;
     line-height: 1.25;
+    width: 512px;
+    max-width: 100%;
+    align-self: center;
+    box-sizing: border-box;
   }
 
   .menu {
@@ -68,13 +72,38 @@
     margin: 0 0 2em 0;
     border: 2px solid #ffffff;
     border-radius: 9999px;
-    box-shadow: 0 0.125em 0.25em rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     font-size: 1.5em;
+    font-weight: 300;
     cursor: pointer;
     background: transparent;
     color: #ffffff;
-    transition: box-shadow 150ms;
+    transition: box-shadow 150ms, color 250ms;
+    font-family: sans-serif;
+    user-select: none;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    overflow: hidden;
+    position: relative;
+  }
+
+  button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #f5f5f5;
+    z-index: -1;
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity 250ms, transform 250ms;
+  }
+
+  button:active::before {
+    opacity: 1;
+    transform: scaleX(1);
+    transition: none;
   }
 
   button::-moz-focus-inner {
@@ -82,9 +111,10 @@
   }
 
   button:active {
-    color: #000000;
-    background: #f5f5f5;
+    color: #4169e1;
+    background: transparent;
     box-shadow: 0 0 rgba(0, 0, 0, 0.1);
+    transition: none;
   }
 
   .spinner {
