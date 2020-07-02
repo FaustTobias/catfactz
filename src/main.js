@@ -8,7 +8,7 @@ const app = new App({
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
-    navigator.serviceWorker.register("service-worker.js").then(
+    navigator.serviceWorker.register(`${__BASE_DIR__}service-worker.js`).then(
       function(registration) {
         console.log(
           `%cService-Worker%c Registered for scope: ${registration.scope}`,

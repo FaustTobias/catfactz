@@ -7,6 +7,7 @@ import replace from "@rollup/plugin-replace";
 import fs from "fs";
 
 const production = !process.env.ROLLUP_WATCH;
+const __BASE_DIR__ = process.env.BASE_DIR || "/";
 
 export default [
   {
@@ -27,6 +28,11 @@ export default [
       resolve({
         browser: true,
         dedupe: ["svelte"],
+      }),
+      replace({
+        __buildDate__: () => JSON.stringify(new Date().toISOString()),
+        __dev__: !production,
+        __BASE_DIR__: JSON.stringify(__BASE_DIR__),
       }),
       commonjs(),
       !production && serve(),
@@ -51,6 +57,7 @@ export default [
       replace({
         __buildDate__: () => JSON.stringify(new Date().toISOString()),
         __dev__: !production,
+        __BASE_DIR__: JSON.stringify(__BASE_DIR__),
       }),
       commonjs(),
       production && terser(),
@@ -78,21 +85,6 @@ function serve() {
   };
 }
 
-function buildTimestamp() {
-  return {
-    generateBundle(options, bundle, isWrite) {
-      if (!isWrite) {
-        return;
-      }
-
-      fs.writeFileSync(
-        `${__dirname}/public/build.txt`,
-        `Build Date: ${new Date().toISOString()}`
-      );
-    },
-  };
-}
-
 function generateIndexDocument() {
   return {
     generateBundle(options, bundle, isWrite) {
@@ -105,7 +97,7 @@ function generateIndexDocument() {
         fs
           .readFileSync(`${__dirname}/src/index.html`)
           .toString()
-          .replace(/%BASE_DIR%/g, process.env.BASE_DIR || "/")
+          .replace(/%BASE_DIR%/g, __BASE_DIR__)
       );
 
       fs.writeFileSync(
@@ -115,7 +107,7 @@ function generateIndexDocument() {
             fs
               .readFileSync(`${__dirname}/src/manifest.webmanifest`)
               .toString()
-              .replace(/%BASE_DIR%/g, process.env.BASE_DIR || "/")
+              .replace(/%BASE_DIR%/g, __BASE_DIR__)
           )
         )
       );
