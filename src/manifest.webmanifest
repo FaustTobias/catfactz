@@ -2,7 +2,7 @@
   "short_name": "CatFactz",
   "name": "CatFactz: Do you know your cat?",
   "description": "Random facts about cats.",
-  "start_url": "/?source=pwa",
+  "start_url": "%BASE_DIR%?source=pwa",
   "background_color": "#4169e1",
   "display": "standalone",
   "scope": "%BASE_DIR%",
