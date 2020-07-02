@@ -1,11 +1,15 @@
 var CACHE_NAME = `catfactz-${__buildDate__}`;
 var urlsToCache = [
-  `${__BASE_DIR__}`,
-  `${__BASE_DIR__}favicon.png`,
-  `${__BASE_DIR__}global.css`,
-  `${__BASE_DIR__}build/bundle.css`,
-  `${__BASE_DIR__}build/bundle.js`,
+  "/",
+  "/favicon.png",
+  "/global.css",
+  "/build/bundle.css",
+  "/build/bundle.js",
 ];
+
+urlsToCache = urlsToCache.map(
+  (url) => new URL(`${__BASE_DIR__}${url.slice(1)}`).pathname
+);
 
 function clearUnusedCaches(temporary) {
   return caches.keys().then(async (keys) => {
