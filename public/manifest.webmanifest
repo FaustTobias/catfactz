@@ -1,0 +1,10 @@
+{
+  "short_name": "CatFactz",
+  "name": "CatFactz: Do you know your cat?",
+  "description": "Random facts about cats.",
+  "start_url": "/?source=pwa",
+  "background_color": "#4169e1",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#4169e1"
+}

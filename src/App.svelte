@@ -3,11 +3,21 @@
   import Typewriter from "./Typewriter.svelte";
 
   let loading = false;
+  let noInternet = false;
   let fact;
+
+  loadFact();
 
   async function loadFact() {
     loading = true;
-    fact = await fetch("https://catfact.ninja/fact").then((res) => res.json());
+    try {
+      fact = await fetch("https://catfact.ninja/fact").then((res) =>
+        res.json()
+      );
+      noInternet = false;
+    } catch {
+      noInternet = true;
+    }
     loading = false;
   }
 </script>
@@ -23,7 +33,7 @@
     flex-direction: column;
     background: #333333;
     color: #ffffff;
-    background: royalblue;
+    background: #4169e1;
     color: snow;
   }
 
@@ -64,15 +74,15 @@
     background: transparent;
     color: #ffffff;
     transition: box-shadow 150ms;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   }
 
-  button:hover {
-    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.2);
-    background: #ffffff;
-    color: #000000;
+  button::-moz-focus-inner {
+    border: 0;
   }
 
   button:active {
+    color: #000000;
     background: #f5f5f5;
     box-shadow: 0 0 rgba(0, 0, 0, 0.1);
   }
@@ -102,20 +112,27 @@
 <div class="app">
   <div class="logo" in:fly={{ duration: 500, y: 20 }}>CatFactz</div>
   <div class="fact">
-    {#if loading}
-      <div transition:fade|local={{ duration: 250, y: 10 }}>
-        <div class="spinner" />
+    {#if noInternet}
+      <div transition:fly|local={{ duration: 250, y: 10 }}>
+        <Typewriter
+          text="Please connect your device to the internet :sadface:" />
       </div>
-    {/if}
-    <div>
-      {#if !loading && fact}
-        <div transition:fly|local={{ duration: 250, y: 10 }}>
-          <Typewriter text={fact.fact} />
+    {:else}
+      {#if loading}
+        <div transition:fade|local={{ duration: 250, y: 10 }}>
+          <div class="spinner" />
         </div>
       {/if}
-    </div>
+      <div>
+        {#if !loading && fact}
+          <div transition:fly|local={{ duration: 250, y: 10 }}>
+            <Typewriter text={fact.fact} />
+          </div>
+        {/if}
+      </div>
+    {/if}
   </div>
-  <div class="menu" in:fly={{ duration: 500, y: 20, delay: 500 }}>
+  <div class="menu" in:fly={{ duration: 500, y: 20, delay: 2000 }}>
     <button on:click={loadFact} disabled={loading}>Load new fact</button>
   </div>
 </div>
