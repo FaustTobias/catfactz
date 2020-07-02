@@ -7,7 +7,7 @@ var urlsToCache = [
   "/build/bundle.js",
 ];
 
-urlsToCache = urlsToCache.map((url) => `${__BASE_DIR__}${url}`);
+urlsToCache = urlsToCache.map((url) => `${__BASE_DIR__}${url.slice(1)}`);
 
 function clearUnusedCaches(temporary) {
   return caches.keys().then(async (keys) => {
