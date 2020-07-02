@@ -27,7 +27,7 @@ jobs:
       - run: yarn --frozen-lockfile
         if: steps.restore-cache.outputs.cache-hit != 'true'
 
-      - run: yarn build
+      - run: BASE_DIR=https://fausttobias.github.io/CatFactz/ yarn build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3

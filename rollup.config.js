@@ -32,7 +32,8 @@ export default [
       !production && serve(),
       !production && livereload("public"),
       production && terser(),
-      buildTimestamp(),
+      generateIndexDocument(),
+      generateBuildInfo(),
     ],
     watch: {
       clearScreen: false,
@@ -78,6 +79,39 @@ function serve() {
 }
 
 function buildTimestamp() {
+  return {
+    generateBundle(options, bundle, isWrite) {
+      if (!isWrite) {
+        return;
+      }
+
+      fs.writeFileSync(
+        `${__dirname}/public/build.txt`,
+        `Build Date: ${new Date().toISOString()}`
+      );
+    },
+  };
+}
+
+function generateIndexDocument() {
+  return {
+    generateBundle(options, bundle, isWrite) {
+      if (!isWrite) {
+        return;
+      }
+
+      fs.writeFileSync(
+        `${__dirname}/public/index.html`,
+        fs
+          .readFileSync(`${__dirname}/src/index.html`)
+          .toString()
+          .replace(/%BASE_DIR%/g, process.env.BASE_DIR || "/")
+      );
+    },
+  };
+}
+
+function generateBuildInfo() {
   return {
     generateBundle(options, bundle, isWrite) {
       if (!isWrite) {
