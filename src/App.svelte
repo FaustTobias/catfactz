@@ -27,7 +27,7 @@
 <Tailwind />
 
 <div class="mx-auto px-4 py-2 max-w-2xl flex flex-col h-full">
-	<div class="py-10">
+	<div class="pt-10 h-36">
 		<div class="font-semibold text-5xl text-white text-center">
 			Cat Factz
 		</div>
@@ -55,7 +55,7 @@
 			</div>
 		{/if}
 	</div>
-	<div class="flex flex-col py-10 items-center justify-center">
+	<div class="flex flex-col pb-10 h-36 items-center justify-center">
 		<button
 			on:click={loadFact}
 			disabled={loading}
