@@ -3,7 +3,7 @@ name: Deployment
 on:
   push:
     branches:
-      - v2
+      - main
 
 jobs:
   deploy:
@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: v2
+          ref: main
 
       - uses: actions/setup-node@v1
         with:
