@@ -1,0 +1,22 @@
+{
+	"short_name": "Cat Factz",
+	"name": "Cat Factz: Facts about your cat!",
+	"description": "Random facts about cats.",
+	"start_url": "%BASE_DIR%",
+	"background_color": "#60A5FA",
+	"display": "standalone",
+	"scope": "%BASE_DIR%",
+	"theme_color": "#60A5FA",
+	"icons": [
+		{
+			"src": "%BASE_DIR%icons/icon-192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "%BASE_DIR%icons/icon-512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	]
+}

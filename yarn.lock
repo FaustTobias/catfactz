@@ -370,6 +370,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/plugin-replace@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "@rollup/plugin-replace@npm:2.4.1"
+  dependencies:
+    "@rollup/pluginutils": ^3.1.0
+    magic-string: ^0.25.7
+  peerDependencies:
+    rollup: ^1.20.0 || ^2.0.0
+  checksum: cbb79ee0176bd333c4c3a9def89c05394363ec7bd496e1298f40f012b48f2093413bfd618eb1b7b39f0f00f2976b56cfcd4f40a2eed1c2a99386c537c816ff7b
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-typescript@npm:^8.0.0":
   version: 8.2.0
   resolution: "@rollup/plugin-typescript@npm:8.2.0"
@@ -4106,6 +4118,7 @@ fsevents@~2.3.1:
     "@faustt/prettier-config": ^1.0.0
     "@rollup/plugin-commonjs": ^17.0.0
     "@rollup/plugin-node-resolve": ^11.0.0
+    "@rollup/plugin-replace": ^2.4.1
     "@rollup/plugin-typescript": ^8.0.0
     "@tsconfig/svelte": ^1.0.0
     "@types/prettier": ^2

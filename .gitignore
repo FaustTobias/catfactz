@@ -1,5 +1,10 @@
 /node_modules/
 /public/build/
+/public/build.txt
+/public/index.html
+/public/manifest.webmanifest
+/public/service-worker.js
+/public/service-worker.js.map
 
 .DS_Store
 

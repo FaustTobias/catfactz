@@ -40,6 +40,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@faustt/prettier-config", "virtual:523f92577d6bcbd3334da2c61ecfbe9106ff9e28bdbc00f8170e1287d886a39bc27d7ba6d601ca9d3d6dcdc03901720ae9d8f2a419ca8781c7167ddb1f49df25#npm:1.0.0"],
             ["@rollup/plugin-commonjs", "virtual:523f92577d6bcbd3334da2c61ecfbe9106ff9e28bdbc00f8170e1287d886a39bc27d7ba6d601ca9d3d6dcdc03901720ae9d8f2a419ca8781c7167ddb1f49df25#npm:17.1.0"],
             ["@rollup/plugin-node-resolve", "virtual:523f92577d6bcbd3334da2c61ecfbe9106ff9e28bdbc00f8170e1287d886a39bc27d7ba6d601ca9d3d6dcdc03901720ae9d8f2a419ca8781c7167ddb1f49df25#npm:11.2.0"],
+            ["@rollup/plugin-replace", "virtual:523f92577d6bcbd3334da2c61ecfbe9106ff9e28bdbc00f8170e1287d886a39bc27d7ba6d601ca9d3d6dcdc03901720ae9d8f2a419ca8781c7167ddb1f49df25#npm:2.4.1"],
             ["@rollup/plugin-typescript", "virtual:523f92577d6bcbd3334da2c61ecfbe9106ff9e28bdbc00f8170e1287d886a39bc27d7ba6d601ca9d3d6dcdc03901720ae9d8f2a419ca8781c7167ddb1f49df25#npm:8.2.0"],
             ["@tsconfig/svelte", "npm:1.0.10"],
             ["@types/prettier", "npm:2.2.1"],
@@ -508,6 +509,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["deepmerge", "npm:4.2.2"],
             ["is-module", "npm:1.0.0"],
             ["resolve", "patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa"],
+            ["rollup", "npm:2.39.0"]
+          ],
+          "packagePeers": [
+            "@types/rollup",
+            "rollup"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@rollup/plugin-replace", [
+        ["npm:2.4.1", {
+          "packageLocation": "./.yarn/cache/@rollup-plugin-replace-npm-2.4.1-7d9f8dc8f6-cbb79ee017.zip/node_modules/@rollup/plugin-replace/",
+          "packageDependencies": [
+            ["@rollup/plugin-replace", "npm:2.4.1"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:523f92577d6bcbd3334da2c61ecfbe9106ff9e28bdbc00f8170e1287d886a39bc27d7ba6d601ca9d3d6dcdc03901720ae9d8f2a419ca8781c7167ddb1f49df25#npm:2.4.1", {
+          "packageLocation": "./.yarn/$$virtual/@rollup-plugin-replace-virtual-1b73de3802/0/cache/@rollup-plugin-replace-npm-2.4.1-7d9f8dc8f6-cbb79ee017.zip/node_modules/@rollup/plugin-replace/",
+          "packageDependencies": [
+            ["@rollup/plugin-replace", "virtual:523f92577d6bcbd3334da2c61ecfbe9106ff9e28bdbc00f8170e1287d886a39bc27d7ba6d601ca9d3d6dcdc03901720ae9d8f2a419ca8781c7167ddb1f49df25#npm:2.4.1"],
+            ["@rollup/pluginutils", "virtual:e6c138414b4948d3d065509376db34040e16fe1f8a3da99cf976a7fd48ed55c2833a8ebf685ac2b089fdcc3eb836e79250f9f67be648c6d4d4a232cf0e67aa91#npm:3.1.0"],
+            ["@types/rollup", null],
+            ["magic-string", "npm:0.25.7"],
             ["rollup", "npm:2.39.0"]
           ],
           "packagePeers": [
@@ -4891,6 +4916,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@faustt/prettier-config", "virtual:523f92577d6bcbd3334da2c61ecfbe9106ff9e28bdbc00f8170e1287d886a39bc27d7ba6d601ca9d3d6dcdc03901720ae9d8f2a419ca8781c7167ddb1f49df25#npm:1.0.0"],
             ["@rollup/plugin-commonjs", "virtual:523f92577d6bcbd3334da2c61ecfbe9106ff9e28bdbc00f8170e1287d886a39bc27d7ba6d601ca9d3d6dcdc03901720ae9d8f2a419ca8781c7167ddb1f49df25#npm:17.1.0"],
             ["@rollup/plugin-node-resolve", "virtual:523f92577d6bcbd3334da2c61ecfbe9106ff9e28bdbc00f8170e1287d886a39bc27d7ba6d601ca9d3d6dcdc03901720ae9d8f2a419ca8781c7167ddb1f49df25#npm:11.2.0"],
+            ["@rollup/plugin-replace", "virtual:523f92577d6bcbd3334da2c61ecfbe9106ff9e28bdbc00f8170e1287d886a39bc27d7ba6d601ca9d3d6dcdc03901720ae9d8f2a419ca8781c7167ddb1f49df25#npm:2.4.1"],
             ["@rollup/plugin-typescript", "virtual:523f92577d6bcbd3334da2c61ecfbe9106ff9e28bdbc00f8170e1287d886a39bc27d7ba6d601ca9d3d6dcdc03901720ae9d8f2a419ca8781c7167ddb1f49df25#npm:8.2.0"],
             ["@tsconfig/svelte", "npm:1.0.10"],
             ["@types/prettier", "npm:2.2.1"],
