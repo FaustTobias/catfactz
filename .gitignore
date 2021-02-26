@@ -1,8 +1,11 @@
 /node_modules/
 /public/build/
-/public/build.txt
-/public/service-worker.js*
-/public/index.html
-/public/manifest.webmanifest
 
 .DS_Store
+
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions

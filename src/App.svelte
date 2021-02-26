@@ -1,168 +1,92 @@
-<script>
-  import { fade, fly } from "svelte/transition";
-  import Typewriter from "./Typewriter.svelte";
+<script lang="ts">
+	import { fly } from "svelte/transition";
+	import Tailwind from "./Tailwind.svelte";
+	import Typewriter from "./Typewriter.svelte";
 
-  let loading = false;
-  let noInternet = false;
-  let fact;
+	let loading = false;
+	let noInternet = false;
+	let fact: { fact: string };
 
-  loadFact();
+	loadFact();
 
-  async function loadFact() {
-    loading = true;
-    try {
-      fact = await fetch("https://catfact.ninja/fact").then((res) =>
-        res.json()
-      );
-      noInternet = false;
-    } catch {
-      noInternet = true;
-    }
-    loading = false;
-  }
+	async function loadFact() {
+		loading = true;
+		try {
+			fact = await fetch("https://catfact.ninja/fact").then((res) =>
+				res.json(),
+			);
+			noInternet = false;
+		} catch {
+			noInternet = true;
+		}
+		loading = false;
+	}
 </script>
 
-<style>
-  .app {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    background: #333333;
-    color: #ffffff;
-    background: #4169e1;
-    color: snow;
-  }
+<!-- Embed the tailwind stylesheets -->
+<Tailwind />
 
-  .logo {
-    padding: 2em;
-    font-size: 1.5em;
-    font-weight: 700;
-    font-family: sans-serif;
-    flex: 1 1 auto;
-    flex: 0 0 auto;
-    text-align: center;
-  }
-
-  .fact {
-    padding: 2em;
-    font-size: 1.25em;
-    font-weight: 300;
-    font-family: sans-serif;
-    flex: 1 1 auto;
-    line-height: 1.25;
-    width: 512px;
-    max-width: 100%;
-    align-self: center;
-    box-sizing: border-box;
-  }
-
-  .menu {
-    display: flex;
-    justify-content: center;
-    flex: 0 0 auto;
-    animation: menu-fadein 500ms ease-in;
-  }
-
-  button {
-    padding: 0.5em 2em;
-    margin: 0 0 2em 0;
-    border: 2px solid #ffffff;
-    border-radius: 9999px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    font-size: 1.5em;
-    font-weight: 300;
-    cursor: pointer;
-    background: transparent;
-    color: #ffffff;
-    transition: box-shadow 150ms, color 250ms;
-    font-family: sans-serif;
-    user-select: none;
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-    overflow: hidden;
-    position: relative;
-  }
-
-  button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: #f5f5f5;
-    z-index: -1;
-    opacity: 0;
-    transform: scaleX(0);
-    transition: opacity 250ms, transform 250ms;
-  }
-
-  button:active::before {
-    opacity: 1;
-    transform: scaleX(1);
-    transition: none;
-  }
-
-  button::-moz-focus-inner {
-    border: 0;
-  }
-
-  button:active {
-    color: #4169e1;
-    background: transparent;
-    box-shadow: 0 0 rgba(0, 0, 0, 0.1);
-    transition: none;
-  }
-
-  .spinner {
-    width: 5em;
-    height: 5em;
-    border: 0.125em solid currentColor;
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: spinner 500ms linear infinite;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-  }
-
-  @keyframes spinner {
-    from {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    to {
-      transform: translate(-50%, -50%) rotate(360deg);
-    }
-  }
-</style>
-
-<div class="app">
-  <div class="logo" in:fly={{ duration: 500, y: 20 }}>CatFactz</div>
-  <div class="fact">
-    {#if noInternet}
-      <div transition:fly|local={{ duration: 250, y: 10 }}>
-        <Typewriter
-          text="Please connect your device to the internet :sadface:" />
-      </div>
-    {:else}
-      {#if loading}
-        <div transition:fade|local={{ duration: 250, y: 10 }}>
-          <div class="spinner" />
-        </div>
-      {/if}
-      <div>
-        {#if !loading && fact}
-          <div transition:fly|local={{ duration: 250, y: 10 }}>
-            <Typewriter text={fact.fact} />
-          </div>
-        {/if}
-      </div>
-    {/if}
-  </div>
-  <div class="menu" in:fly={{ duration: 500, y: 20, delay: 2000 }}>
-    <button on:click={loadFact} disabled={loading}>Load new fact</button>
-  </div>
+<div class="mx-auto px-4 py-2 max-w-2xl flex flex-col h-full">
+	<div class="py-10">
+		<div class="font-semibold text-5xl text-white text-center">
+			Cat Factz
+		</div>
+		<div class="text-white text-xl text-center pb-4">
+			Facts about your cat!
+		</div>
+	</div>
+	<div
+		class="text-white flex flex-1 flex-col justify-center items-center overflow-y-auto"
+	>
+		{#if !loading}
+			<div
+				class="text-xl sm:text-3xl px-4"
+				transition:fly={{ y: 10, duration: 200 }}
+			>
+				{#if fact && fact.fact}
+					<Typewriter text={fact.fact} />
+				{/if}
+			</div>
+		{/if}
+	</div>
+	<div class="flex flex-col py-10 items-center justify-center">
+		<button
+			on:click={loadFact}
+			disabled={loading}
+			class="text-xl text-white border-2 border-white active:bg-white active:text-black rounded-md active:shadow-lg w-48 h-12 flex flex-row items-center justify-center focus:outline-none select-none {loading
+				? 'cursor-not-allowed'
+				: ''}"
+		>
+			{#if loading}
+				<svg
+					class="animate-spin -ml-1 mr-3 h-5 w-5"
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+				>
+					<circle
+						class="opacity-25"
+						cx="12"
+						cy="12"
+						r="10"
+						stroke="currentColor"
+						stroke-width="4"
+					/>
+					<path
+						class="opacity-75"
+						fill="currentColor"
+						d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+					/>
+				</svg>
+			{:else}
+				<span>Load new fact</span>
+			{/if}
+		</button>
+	</div>
 </div>
+
+<style lang="postcss" global>
+	body {
+		@apply p-0 bg-blue-400 h-screen;
+	}
+</style>

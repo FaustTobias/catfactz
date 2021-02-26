@@ -1,0 +1,14 @@
+{
+	"search.exclude": {
+		"**/.yarn": true,
+		"**/.pnp.*": true
+	},
+	"typescript.tsdk": ".yarn/sdks/typescript/lib",
+	"typescript.enablePromptUseWorkspaceTsdk": true,
+	"svelte.language-server.ls-path": ".yarn/sdks/svelte-language-server/bin/server.js",
+	"prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	}
+}

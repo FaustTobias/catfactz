@@ -1,0 +1,6 @@
+{
+  "name": "svelte-language-server",
+  "version": "0.12.14-pnpify",
+  "main": "dist/src/index.js",
+  "type": "commonjs"
+}

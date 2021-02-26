@@ -1,0 +1,9 @@
+{
+	"recommendations": [
+		"svelte.svelte-vscode",
+		"arcanis.vscode-zipfs",
+		"esbenp.prettier-vscode",
+		"prettier.prettier-vscode",
+		"editorconfig.editorconfig"
+	]
+}
