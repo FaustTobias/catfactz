@@ -38,13 +38,19 @@
 	<div
 		class="text-white flex flex-1 flex-col justify-center items-center overflow-y-auto"
 	>
-		{#if !loading}
+		{#if !loading || noInternet}
 			<div
 				class="text-xl sm:text-3xl px-4"
 				transition:fly={{ y: 10, duration: 200 }}
 			>
-				{#if fact && fact.fact}
-					<Typewriter text={fact.fact} />
+				{#if !noInternet}
+					{#if fact && fact.fact}
+						<Typewriter text={fact.fact} />
+					{/if}
+				{:else}
+					<Typewriter
+						text="Please connect your device to the internet!"
+					/>
 				{/if}
 			</div>
 		{/if}
